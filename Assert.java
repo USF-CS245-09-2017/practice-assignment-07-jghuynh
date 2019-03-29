@@ -6,7 +6,9 @@ public class Assert {
         try {
             throw new Exception("False condition!");
         }
-        catch (Exception e) {System.out.println("False!");}
+        catch (Exception e) {
+//            System.out.println("False!");
+        }
         return true;
     }
 }

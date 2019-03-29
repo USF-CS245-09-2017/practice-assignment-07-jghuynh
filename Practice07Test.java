@@ -51,7 +51,10 @@ public class Practice07Test {
 			
 			for (int i = work.length-1; i >= 0; i--) {
 				if (! list.remove(i).equals(work[i]))
+				{
 					return false;
+				}
+
 			}
 			return true;
 		} catch (Exception e) {

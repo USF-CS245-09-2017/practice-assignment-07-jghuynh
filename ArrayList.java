@@ -38,20 +38,27 @@ public class ArrayList<T> implements List<T> {
      * @param item the item to be added
      */
     public void add(int pos, T item) {
-        Assert.notFalse(pos >= 0 && pos < size);
-        if (array[INITIAL_SIZE - 1] != null) {
+        Assert.notFalse(pos >= 0 && pos < array.length);
+        if (array[array.length - 1] != null) {
             grow_array();
         }
-        for (int index = 0; index < size; index ++) {
+        T originalVal = array[0];
+        T temp = array[0];
+        for (int index = 0; index < size + 1; index ++) {
             if (index == pos) {
-                array[index + 1] = array[index];
+                originalVal = array[index];
+//                array[index + 1] = array[index];
                 array[index] = item;
-                size ++;
             }
             else if (index > pos) {
-                array[index] = array[index - 1];
+                temp = array[index];
+                array[index] = originalVal;
+                originalVal = temp;
+//                array[index + 1] = array[index];
             }
+//            originalVal = array[index];
         }
+        size ++;
     }
 
     /**
@@ -75,24 +82,42 @@ public class ArrayList<T> implements List<T> {
      * @return the item from that position
      */
     public T remove(int pos){
-        Assert.notFalse(pos >= 0 && pos < size);
+//        System.out.println("Enter Remove Function. Removing item at position = " + pos);
+//        Assert.notFalse(pos >= 0 && pos < size);
+        if (pos < 0 || pos >= size) {
+            try {
+                throw new Exception("False!");
+            }
+            catch (Exception e) {
+            }
+            return null;
+        }
+
         T value = array[head];
+//        System.out.println("Value = " + value);
         for (int index = 0; index < size; index ++) {
+//            System.out.println("Index = " + index);
             if (index == pos) {
-                size --;
+//                System.out.println("If index = " + pos);
                 value = array[pos];
+//                System.out.println("Value = " + value);
                 array[index] = array[index + 1];
+//                System.out.println("Item at index = " + index + "is now " + array[index]);
             }
             else if (index > pos) {
+//                System.out.println("If Index of " + index + "is greater than position = " + pos);
                 if (index == size - 1) {
                     array[index] = null;
+//                    System.out.println("Item is null at " + index);
                 }
                 else
                 {
+//                    System.out.println("If index is not " + (size - 1));
                     array[index] = array[index + 1];
                 }
             }
         }
+        size --;
         return value;
     }
 
@@ -122,10 +147,20 @@ public class ArrayList<T> implements List<T> {
 
         myAL.add(3);
         myAL.add(5);
-        myAL.remove(0);
+        myAL.add(10);
+        myAL.add(2, 4);
+        myAL.add(2);
+        System.out.println("Before removing");
         for (int index = 0; index < myAL.size(); index ++) {
             System.out.println(myAL.get(index) + " ");
         }
+        System.out.println("Size = " + myAL.size);
+        myAL.remove(2);
+        System.out.println("Tried removed element as position = " + 2);
+        for (int index = 0; index < myAL.size(); index ++) {
+            System.out.println(myAL.get(index) + " ");
+        }
+        System.out.println("Size = " + myAL.size);
 
     }
 
