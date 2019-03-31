@@ -44,7 +44,7 @@ public class ArrayList<T> implements List<T> {
         }
         T originalVal = array[0];
         T temp = array[0];
-        for (int index = 0; index < size + 1; index ++) {
+        for (int index = pos; index < size + 1; index ++) {
             if (index == pos) {
                 originalVal = array[index];
 //                array[index + 1] = array[index];
@@ -96,7 +96,7 @@ public class ArrayList<T> implements List<T> {
 
         T value = array[head];
 //        System.out.println("Value = " + value);
-        for (int index = 0; index < size; index ++) {
+        for (int index = pos; index < size; index ++) {
 //            System.out.println("Index = " + index);
             if (index == pos) {
 //                System.out.println("If index = " + pos);
