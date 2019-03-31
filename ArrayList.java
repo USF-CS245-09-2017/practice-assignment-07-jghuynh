@@ -107,15 +107,15 @@ public class ArrayList<T> implements List<T> {
             }
             else if (index > pos) {
 //                System.out.println("If Index of " + index + "is greater than position = " + pos);
-                if (index == size - 1) {
-                    array[index] = null;
-//                    System.out.println("Item is null at " + index);
-                }
-                else
-                {
+//                 if (index == size - 1) {
+//                     array[index] = null;
+// //                    System.out.println("Item is null at " + index);
+//                 }
+//                 else
+//                 {
 //                    System.out.println("If index is not " + (size - 1));
                     array[index] = array[index + 1];
-                }
+//                 }
             }
         }
         size --;
