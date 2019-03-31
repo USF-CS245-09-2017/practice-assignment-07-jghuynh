@@ -94,29 +94,10 @@ public class ArrayList<T> implements List<T> {
             return null;
         }
 
-        T value = array[head];
+        T value = array[pos];
 //        System.out.println("Value = " + value);
         for (int index = pos; index < size; index ++) {
-//            System.out.println("Index = " + index);
-            if (index == pos) {
-//                System.out.println("If index = " + pos);
-                value = array[pos];
-//                System.out.println("Value = " + value);
-                array[index] = array[index + 1];
-//                System.out.println("Item at index = " + index + "is now " + array[index]);
-            }
-            else if (index > pos) {
-//                System.out.println("If Index of " + index + "is greater than position = " + pos);
-//                 if (index == size - 1) {
-//                     array[index] = null;
-// //                    System.out.println("Item is null at " + index);
-//                 }
-//                 else
-//                 {
-//                    System.out.println("If index is not " + (size - 1));
-                    array[index] = array[index + 1];
-//                 }
-            }
+           array[index] = array[index + 1];
         }
         size --;
         return value;
