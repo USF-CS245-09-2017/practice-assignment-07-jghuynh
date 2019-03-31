@@ -68,12 +68,13 @@ public class ArrayList<T> implements List<T> {
      */
     public T get(int pos){
         Assert.notFalse(pos >= 0 && pos < size);
-        for (int index = 0; index < size; index ++) {
-            if (index == pos) {
-                return array[index];
-            }
-        }
-        return null;
+        return array[pos];
+//         for (int index = 0; index < size; index ++) {
+//             if (index == pos) {
+//                 return array[index];
+//             }
+//         }
+//         return null;
     }
 
     /**
